@@ -1,0 +1,38 @@
+﻿<Window x:Class="Kalambury.AddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Dodaj hasło" Height="250" Width="300">
+    <Grid>
+        
+        <Grid HorizontalAlignment="Left" Height="220"  VerticalAlignment="Top" Width="290">
+            <StackPanel HorizontalAlignment="Left" Height="220" VerticalAlignment="Stretch" Width="150">
+                <Label Height="25" Margin="10" 
+                       Content="NAZWA:" HorizontalAlignment="Right"/>
+                
+                <Label Height="25" Margin="10" 
+                       Content="KATEGORIA:" HorizontalAlignment="Right"/>
+                
+                <Label Height="25" Margin="10,10,10,10" 
+                       Content="POZIOM TRUDNOŚCI:" HorizontalAlignment="Right"/>
+            </StackPanel>
+            
+            <StackPanel HorizontalAlignment="Right" Height="220" 
+                        VerticalAlignment="Stretch" Width="145">
+                
+                <TextBox Name="newName"  Margin="10" Height="25" TextWrapping="Wrap" Text=""/>
+                <TextBox Name="newCategory" Margin="10" Height="25" TextWrapping="Wrap" Text=""/>
+                <ComboBox HorizontalContentAlignment="Center" 
+                    Name="newLevel" FontSize="20"
+                    Margin="10" Height="25">
+                    <ComboBoxItem IsSelected="True">*</ComboBoxItem>
+                    <ComboBoxItem>**</ComboBoxItem>
+                    <ComboBoxItem>***</ComboBoxItem>
+                </ComboBox>
+                <Button Margin="10,30,10,10" Height="25" Content="Dodaj" Click="AddButton_Click">
+                </Button>
+            </StackPanel>
+
+        </Grid>
+        
+    </Grid>
+</Window>

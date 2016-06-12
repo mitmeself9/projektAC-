@@ -1,0 +1,405 @@
+﻿<Window x:Class="Kalambury.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="KALAMBURY" Height="350" Width="525"
+        Icon="Icon1.ico"
+        Name="mainWindow" WindowState="Maximized"
+        MinWidth="300"
+        MinHeight="60">
+        
+
+    <Window.Resources>
+        
+    </Window.Resources>
+
+    <Grid Background="#FF51C1B2"
+          Name="mainGrid"
+          Width="Auto"
+          Height="Auto">
+          
+        <DockPanel Width="{Binding ElementName=mainGrid, Path=ActualWidth}" 
+                   Height="{Binding ElementName=mainGrid, Path=ActualHeight}">
+
+
+            <Menu DockPanel.Dock="Top">
+                
+                <MenuItem Name="NewGameHeader"  Visibility="Visible" 
+                          Header="_Nowa gra" Click="NewGameShow"/>
+                
+                <MenuItem Name="PasswordShowHeader" Visibility="Visible" 
+                          Header="_Lista haseł" Click="PasswordsListShow"/>
+                
+             </Menu>
+
+            <StackPanel Width="{Binding ElementName=mainGrid, Path=ActualWidth}" Height="Auto"         
+                        Name="NewGame" 
+                        Visibility="Visible"
+                        HorizontalAlignment="Stretch" 
+                        VerticalAlignment="Top">
+                        
+
+                <StackPanel Width="Auto" 
+                            Height="90"
+                            VerticalAlignment="Top"
+                            Margin="0,20,0,10">
+                            
+                    <Label Content="USTAWIENIA GRY" 
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           FontSize="15"/>
+                    
+                    <Grid HorizontalAlignment="Center">
+                        
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        
+                        <StackPanel Grid.Column="0" Width="Auto"  Height="Auto" 
+                                    Margin="10,0,20,0" HorizontalAlignment="Center">
+                            
+                            <Label Content="Liczba haseł na kolejke:"/>
+                            
+                            <ComboBox Name="PasswordsComboBox"  Width="75" HorizontalContentAlignment="Center"/>
+                            
+                        </StackPanel>
+                        
+                        <StackPanel Grid.Column="1" Width="Auto"  Height="Auto" 
+                                    Margin="10,0,20,0" HorizontalAlignment="Center">
+                            
+                            <Label Content="Liczba minut na kolejke:"/>
+                            
+                            <ComboBox Name="TimeComboBox" Width="75" HorizontalContentAlignment="Center"/>
+                            
+                        </StackPanel>
+                        
+                        <StackPanel Grid.Column="2" Width="Auto"  Height="Auto" 
+                                    Margin="20,0,0,0" HorizontalAlignment="Center">
+                            
+                            <Label Content="Liczba pełnych rund:"/>
+                            
+                            <ComboBox Name="RoundComboBox" Width="75" HorizontalContentAlignment="Center"/>
+                            
+                        </StackPanel>
+                        
+                    </Grid>
+                    
+                </StackPanel>
+                
+                <StackPanel Margin="0,10,0,0" Height="100">
+                    
+                    <Grid HorizontalAlignment="Center">
+                        
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0" Width="Auto"  Height="Auto" 
+                                    Margin="10,0,120,0" HorizontalAlignment="Center">
+                            
+                            <Label Content="DRUŻYNA 1" HorizontalAlignment="Center"/>
+                            
+                            <Grid HorizontalAlignment="Center">
+                                
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                
+                                <Label Margin="0,0,0,10" Grid.Column="0" Grid.Row="0" 
+                                       Content="Liczba graczy:" HorizontalAlignment="Right"/>
+                                
+                                <ComboBox Margin="0,0,0,10" x:Name="Team1ComboBox"  
+                                          Grid.Column="1" Grid.Row="0" Width="Auto" 
+                                          HorizontalContentAlignment="Center"/>
+                                
+                                <Label Grid.Column="0" Grid.Row="1" 
+                                       Content="Nazwa drużyny:" HorizontalAlignment="Right" />
+                                
+                                <TextBox  Name="Team1Name" Width="100" Grid.Column="1" Grid.Row="1"/>
+                                
+                            </Grid>
+                            
+                        </StackPanel>
+                        
+                        <StackPanel Grid.Column="1" Width="Auto" Height="Auto" 
+                                    Margin="10,0,10,0" HorizontalAlignment="Center">
+                            
+                            <Label Content="DRUŻYNA 2" HorizontalAlignment="Center"/>
+                            
+                            <Grid HorizontalAlignment="Center">
+                                
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                
+                                <Label Margin="0,0,0,10" Grid.Column="0" Grid.Row="0" 
+                                       Content="Liczba graczy:" HorizontalAlignment="Right"/>
+                                
+                                <ComboBox Margin="0,0,0,10" x:Name="Team2ComboBox"  
+                                          Grid.Column="1" Grid.Row="0" Width="Auto" 
+                                          HorizontalContentAlignment="Center"/>
+                                
+                                <Label Grid.Column="0" Grid.Row="1" Content="Nazwa drużyny:" HorizontalAlignment="Right"/>
+                                
+                                <TextBox  Name="Team2Name" Width="100" Grid.Column="1" Grid.Row="1"/>
+                                
+                            </Grid>
+                            
+                        </StackPanel>
+                        
+                    </Grid>
+                    
+                </StackPanel>
+
+                <StackPanel HorizontalAlignment="Stretch"
+                            VerticalAlignment="Top">
+                    
+                    <Button Content="Start"
+                            Width="60"
+                            FontSize="15"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center" Click="StartGameButton"/>
+                        
+                </StackPanel>
+                
+            </StackPanel>
+
+            <StackPanel Width="{Binding ElementName=mainGrid, Path=ActualWidth}" Height="Auto"         
+                        Name="GameStarted" 
+                        Visibility="Collapsed"
+                        HorizontalAlignment="Stretch" 
+                        VerticalAlignment="Top">
+                        
+
+                <StackPanel Width="Auto" 
+                            Height="Auto"
+                            VerticalAlignment="Top"
+                            Margin="0,20,0,10">
+                            
+                    <Label FontSize="50"
+                           Content="{Binding Path=TeamLabelContent, UpdateSourceTrigger=PropertyChanged}" 
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"/>
+                           
+                    <StackPanel Name="StackReadyPanel" Margin="0,20,0,0">
+                        
+                        <Grid Name="PlayerReadyGrid" HorizontalAlignment="Center">
+                            
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label FontSize="50" Grid.Column="0" Content="{Binding Path=PlayerLabelContent, UpdateSourceTrigger=PropertyChanged}"/>
+
+                            <Button FontSize="50" Grid.Column="1" Content="TAK" Click="PlayerReadyButton"/>
+                        </Grid>
+                        
+                    </StackPanel>
+                    
+                    <StackPanel Margin="0,20,0,0">
+                        
+                        <Grid HorizontalAlignment="Center">
+                            
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50"
+                                   Grid.Column="0" Content="CZAS:"/>
+                            
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                       Grid.Column="1" Margin="10" Name="TimerTextBlock" 
+                                       Height="Auto" Width="150" FontSize="50" />
+                            
+                        </Grid>
+                        
+                    </StackPanel>
+                    
+                    <StackPanel>
+                        <Grid HorizontalAlignment="Center">
+                            
+                        <Grid.ColumnDefinitions>
+                            
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            
+                        </Grid.ColumnDefinitions>
+                            
+                            <Label FontSize="30" Grid.Column="0" Content="HASŁO:" Margin="0,0,10,0"/>
+                            
+                            <Label FontSize="30" Grid.Column="1" Width="Auto" Foreground="AliceBlue"
+                                   Content="{Binding Path=PasswordLabelContent, UpdateSourceTrigger=PropertyChanged}"/>
+                            
+                            <Label FontSize="30" Grid.Column="2" Content="KATEGORIA:" Margin="20,0,10,0"/>
+
+                            <Label FontSize="30" Grid.Column="3" Width="Auto" Foreground="Beige"
+                                   Content="{Binding Path=CategoryLabelContent, UpdateSourceTrigger=PropertyChanged}"/>
+                       
+                        </Grid>
+                        
+                    </StackPanel>
+                    
+                    <Button Width="100" Content="ZGADNIĘTE" Click="PasswordGuessed"/>
+
+                    <StackPanel Margin="0,20,0,0">
+                        
+                        <Grid HorizontalAlignment="Center">
+                            
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Label FontSize="20" Grid.Column="0" Grid.Row="0" Content="{Binding Path=Team1NameProp}"/>
+
+                            <Label FontSize="20" Grid.Column="0"  Grid.Row="1" Content="{Binding Path=Team2NameProp}"/>
+
+                            <Label Name="Team1ScoreLabel"  FontSize="20" Grid.Column="1" Grid.Row="0" 
+                                   Content="{Binding Path=Team1ScoreContent, UpdateSourceTrigger=PropertyChanged}"/>
+
+                            <Label Name="Team2ScoreLabel" FontSize="20" Grid.Column="1" Grid.Row="1"
+                                   Content="{Binding Path=Team2ScoreContent, UpdateSourceTrigger=PropertyChanged}"/>
+                                   
+
+                        </Grid>
+                        
+                    </StackPanel>
+
+                    <Button Margin="0,20,0,0" Width="200" Content="WYJDŹ Z GRY" Click="FinishGame"/>
+                    
+                </StackPanel>             
+
+            </StackPanel>
+
+            <StackPanel Width="{Binding ElementName=mainGrid, Path=ActualWidth}" Height="Auto"         
+                        Name="PasswordStack" 
+                        Visibility="Collapsed"
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Top">
+                        
+
+                    <StackPanel  Width="500" Height="140" Margin="0,20,0,10">
+                        
+                        <Grid HorizontalAlignment="Center">
+                            
+                            <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120" />
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="120"/>
+                            </Grid.ColumnDefinitions>
+                            
+                        <StackPanel Margin="0,0,0,0" Grid.Row="0" Grid.Column="0">
+                            
+                            <Label Content="EDYCJA" FontSize="15" HorizontalAlignment="Center"/>
+                            
+                            <Button  Name="Add" Width="40" Margin="5,10,5,0" Click="AddNewPassword"  Height="25" Content="Dodaj"/>
+                            
+                            <Button Height="25"  Width="Auto" Margin="5,10,5,0" 
+                                    Content="Usuń zaznaczone" HorizontalAlignment="Center" Click="RemoveSelected"/>
+                            
+                        </StackPanel>  
+                            
+                        <StackPanel  Grid.Row="0" Grid.Column="1">
+                            
+                            <Label Content="SZUKANIE" FontSize="15" HorizontalAlignment="Center"/>
+                            
+                                <Button  Name="Find" Click="FindData" Height="25" 
+                                         Margin="5,10,5,0" Content="Szukaj" HorizontalAlignment="Center"/>
+                            
+                            <Button Height="25" Width="90" Margin="5,10,5,0" Content="Pokaż wszystkie" Click="ShowAllPasswords"/>
+                        
+                        </StackPanel>
+                    
+                        <StackPanel Margin="10,0,0,0" Grid.Row="0" Grid.Column="2">
+                            
+                            <Label Content="SORTOWANIE" FontSize="15" HorizontalAlignment="Center"/>
+                            
+                            <Button Margin="5,10,5,0" HorizontalAlignment="Center" Height="25" Content="Sortuj" Click="Sort"/>
+                            
+                            <ComboBox Name="ValueSortTypeComboBox" HorizontalContentAlignment="Center" 
+                                      Height="25" Width="Auto" Margin="5,10,5,0"/>
+                            
+                            <RadioButton GroupName="FindMode" HorizontalAlignment="Center"
+                                         Margin="5,10,5,0" Content="Rosnąco"
+                                         Checked="RadioSortChecked"
+                                         Tag="up"/>
+                            
+                            <RadioButton GroupName="FindMode"  Content="Malejąco" 
+                                         HorizontalAlignment="Center" Margin="7,0,5,0"
+                                         Checked="RadioSortChecked"
+                                         Tag="down"/>
+                       
+                        </StackPanel>
+                            
+                    </Grid>
+                        
+                    </StackPanel>
+
+                    <StackPanel Margin="0,20,0,0">
+                        
+                    <ListView Name="PasswordListWiev"
+                        ItemsSource="{Binding PasswordCollection}"
+            			Height="Auto"
+            			MaxHeight="450"
+            			VerticalAlignment="Center"
+            			HorizontalAlignment="Center"
+            			ScrollViewer.CanContentScroll="True" 
+            			ScrollViewer.VerticalScrollBarVisibility="Auto"
+            			ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                        
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="{x:Type ListViewItem}">
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                <Setter Property="VerticalContentAlignment" Value="Center" />
+
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        
+                        <ListView.View>
+
+                            <GridView>
+                                <GridViewColumn Width="Auto" Header="Id"  DisplayMemberBinding="{Binding Id}"/>
+                                <GridViewColumn Width="Auto" Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                                <GridViewColumn Width="Auto" Header="Category" DisplayMemberBinding="{Binding Category}"/>
+                                <GridViewColumn Width="Auto" Header="Level" DisplayMemberBinding="{Binding Level}"/>
+                            </GridView>
+                            
+                        </ListView.View>
+                        
+                    </ListView>
+                        
+                    </StackPanel>
+                
+                </StackPanel>
+            
+            </DockPanel>
+    </Grid>
+
+</Window>

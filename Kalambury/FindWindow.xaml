@@ -1,0 +1,67 @@
+﻿<Window x:Class="Kalambury.FindWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Szukaj haseł" Height="300" Width="240">
+    <Grid>
+        <StackPanel Width="240" Height="270" VerticalAlignment="Top" HorizontalAlignment="Center">
+            
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                
+                <Label Content="Szukaj po:" HorizontalAlignment="Left" 
+                       Margin="0,10,0,0" VerticalAlignment="Top"/>
+                
+                <CheckBox Content="Nazwa" HorizontalAlignment="Left" 
+                          Margin="0,5,0,0" VerticalAlignment="Top" 
+                          Checked="Name_Checked" Unchecked="Name_Unchecked"/>
+                
+                <CheckBox Content="Kategoria" HorizontalAlignment="Left" 
+                          Margin="0,5,0,0" VerticalAlignment="Top" 
+                          Checked="Category_Checked" Unchecked="Category_Unchecked"/>
+                
+                    <CheckBox Content="Poziom trudności" HorizontalAlignment="Left" 
+                              Margin="0,5,0,0" VerticalAlignment="Top" 
+                              Checked="Level_Checked" Unchecked="Level_Unchecked"/>
+            </StackPanel>
+            
+            <StackPanel Name="NameFind" Visibility="Collapsed" 
+                        Margin="30,20,0,0" Orientation="Horizontal" HorizontalAlignment="Left">
+                
+                <TextBlock>Nazwa:</TextBlock>
+                
+                <TextBox Name="NameTextBox" Margin="5,0,0,0" Width="140"/>
+                
+            </StackPanel>
+            
+            <StackPanel Name="CategoryFind" Visibility="Collapsed" 
+                        Margin="30,10,0,0" Orientation="Horizontal" HorizontalAlignment="Left">
+                
+                <TextBlock>Kategoria:</TextBlock>
+                
+                <TextBox Name="CategoryTextBox" Margin="5,0,0,0" Width="125"/>
+                
+            </StackPanel>
+            
+            <StackPanel Name="LevelFind" Visibility="Collapsed"
+                        Margin="30,10,0,0" Orientation="Horizontal" HorizontalAlignment="Left">
+                
+                <TextBlock>Poziom trudności:</TextBlock>
+                
+                <ComboBox Name="LevelTextBox" Margin="5,0,0,0" 
+                          HorizontalContentAlignment="Center" Width="82">
+                    
+                <ComboBoxItem IsSelected="True">*</ComboBoxItem>
+                    
+                <ComboBoxItem>**</ComboBoxItem>
+                    
+                <ComboBoxItem>***</ComboBoxItem>
+                    
+                </ComboBox>
+                
+            </StackPanel>
+            
+        </StackPanel>
+        
+        <Button Content="Szukaj" HorizontalAlignment="Center" Margin="0,0,0,20" 
+                VerticalAlignment="Bottom" Width="75" Click="FindButton_Click" />
+    </Grid>
+</Window>

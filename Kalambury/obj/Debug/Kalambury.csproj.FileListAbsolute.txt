@@ -1,0 +1,17 @@
+c:\users\dzejk\documents\visual studio 2013\Projects\Kalambury\Kalambury\bin\Debug\Kalambury.exe.config
+c:\users\dzejk\documents\visual studio 2013\Projects\Kalambury\Kalambury\obj\Debug\MainWindow.baml
+c:\users\dzejk\documents\visual studio 2013\Projects\Kalambury\Kalambury\obj\Debug\MainWindow.g.cs
+c:\users\dzejk\documents\visual studio 2013\Projects\Kalambury\Kalambury\obj\Debug\App.g.cs
+c:\users\dzejk\documents\visual studio 2013\Projects\Kalambury\Kalambury\obj\Debug\Kalambury_MarkupCompile.cache
+c:\users\dzejk\documents\visual studio 2013\Projects\Kalambury\Kalambury\obj\Debug\Kalambury.g.resources
+c:\users\dzejk\documents\visual studio 2013\Projects\Kalambury\Kalambury\obj\Debug\Kalambury.Properties.Resources.resources
+c:\users\dzejk\documents\visual studio 2013\Projects\Kalambury\Kalambury\obj\Debug\Kalambury.csproj.GenerateResource.Cache
+c:\users\dzejk\documents\visual studio 2013\Projects\Kalambury\Kalambury\bin\Debug\Kalambury.exe
+c:\users\dzejk\documents\visual studio 2013\Projects\Kalambury\Kalambury\bin\Debug\Kalambury.pdb
+c:\users\dzejk\documents\visual studio 2013\Projects\Kalambury\Kalambury\obj\Debug\Kalambury.exe
+c:\users\dzejk\documents\visual studio 2013\Projects\Kalambury\Kalambury\obj\Debug\Kalambury.pdb
+C:\Users\Dzejk\documents\visual studio 2013\Projects\Kalambury\Kalambury\obj\Debug\AddWindow.baml
+C:\Users\Dzejk\documents\visual studio 2013\Projects\Kalambury\Kalambury\obj\Debug\AddWindow.g.cs
+C:\Users\Dzejk\documents\visual studio 2013\Projects\Kalambury\Kalambury\obj\Debug\FindWindow.baml
+C:\Users\Dzejk\documents\visual studio 2013\Projects\Kalambury\Kalambury\obj\Debug\FindWindow.g.cs
+C:\Users\Dzejk\Documents\Visual Studio 2013\Projects\Kalambury\Kalambury\obj\Debug\Kalambury.csprojResolveAssemblyReference.cache

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-2" standalone="no" ?>
+<teams>
+  <team>
+  <id>1</id>
+  <name>Hawajska</name>
+  <amount>2</amount>
+  </team>
+  <team>
+  <id>2</id>
+  <name>Dzikusy</name>
+  <amount>3</amount>
+  </team>
+</teams>
