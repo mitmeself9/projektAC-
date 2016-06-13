@@ -59,9 +59,10 @@ namespace Kalambury
             this.ValueSortTypeComboBox.ItemsSource = Enum.GetValues(typeof(ValueTypeSort));
             this.ValueSortTypeComboBox.SelectedIndex = 0;
 
-            Timer = new DispatcherTimer();
+            Timer = new DispatcherTimer(DispatcherPriority.Normal);
             Timer.Interval = new TimeSpan(0,0,1);
             Timer.Tick += Timer_Tick;
+
             UpdateLayout();
         }
 
@@ -119,8 +120,7 @@ namespace Kalambury
                     {
                         TeamLabelContent = Team1List.ElementAt(0);
                         PlayerLabelContent = Team1List.ElementAt(1);
-                        Team1List.RemoveAt(0);
-                        Team1List.RemoveAt(0);
+                        Team1List.RemoveRange(0, 2);
                         TeamToPLay = team1;
                     }
 
@@ -128,8 +128,7 @@ namespace Kalambury
                     {
                         TeamLabelContent = Team2List.ElementAt(0);
                         PlayerLabelContent = Team2List.ElementAt(1);
-                        Team2List.RemoveAt(0);
-                        Team2List.RemoveAt(0);
+                        Team2List.RemoveRange(0, 2);
                         TeamToPLay = team2;
                     }
 
@@ -138,6 +137,8 @@ namespace Kalambury
                     StackReadyPanel.Visibility = Visibility.Visible;
 
                     PasswordAmountToQuess = (int)((PasswordAmount)this.PasswordsComboBox.SelectedItem);
+
+                    playerReady = false;
 
                     MessageBox.Show("Koniec czasu! Nastepny gracz!");
                 }
@@ -377,8 +378,8 @@ namespace Kalambury
  
                 StackReadyPanel.Visibility = Visibility.Visible;
 
-                /*HERE is some problem with refreshing labels in window - the content is chaning with event , 
-                 *but Window update the label gui content only when window changes state(size) 
+                /*HERE is some problem with refreshing labels in window - the content is changing with event activation , 
+                 *but Window update the label gui text only when window changes state(size) - refreshing doesn't work
                  *any solution? Team1ScoreLabel ? Team2ScoreLabel ?
                  */
                 if (TeamToPLay && PasswordAmountToQuess > 0)
@@ -396,7 +397,8 @@ namespace Kalambury
                     
                 }
 
-                UpdateLayout();
+               Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, new Action(() => { Team1ScoreLabel.UpdateLayout(); }));
+               Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, new Action(() => { Team2ScoreLabel.UpdateLayout(); }));
 
                 PasswordAmountToQuess--;
 
@@ -414,16 +416,15 @@ namespace Kalambury
                         {
                             TeamLabelContent = Team1List.ElementAt(0);
                             PlayerLabelContent = Team1List.ElementAt(1);
-                            Team1List.RemoveAt(0);
-                            Team1List.RemoveAt(0);
+                            Team1List.RemoveRange(0, 2);
+                            
                             TeamToPLay = team1;
                         }
                         else
                         {
                             TeamLabelContent = Team2List.ElementAt(0);
                             PlayerLabelContent = Team2List.ElementAt(1);
-                            Team2List.RemoveAt(0);
-                            Team2List.RemoveAt(0);
+                            Team2List.RemoveRange(0, 2);
                             TeamToPLay = team2;
                         }
 
@@ -471,10 +472,6 @@ namespace Kalambury
                 }
             }
 
-            else
-            {
-                playerReady = false;
-            }
         }
 
     }
