@@ -272,7 +272,6 @@ namespace Kalambury
 
         private DispatcherTimer Timer;
 
-        //YourList.OrderBy(x => rnd.Next()).Take(5)
 
   }
     

@@ -378,10 +378,8 @@ namespace Kalambury
  
                 StackReadyPanel.Visibility = Visibility.Visible;
 
-                /*HERE is some problem with refreshing labels in window - the content is changing with event activation , 
-                 *but Window update the label gui text only when window changes state(size) - refreshing doesn't work
-                 *any solution? Team1ScoreLabel ? Team2ScoreLabel ?
-                 */
+                // here is some problem (only in full screen mode) with refreshing points in label graphic structure 
+
                 if (TeamToPLay && PasswordAmountToQuess > 0)
                 {
                     Team2Score += 1;
@@ -397,8 +395,13 @@ namespace Kalambury
                     
                 }
 
-               Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, new Action(() => { Team1ScoreLabel.UpdateLayout(); }));
-               Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, new Action(() => { Team2ScoreLabel.UpdateLayout(); }));
+                Task.Factory.StartNew(() =>
+                {
+                    Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, new Action(() => { Team1ScoreLabel.UpdateLayout(); }));
+
+                });
+
+                Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, new Action(() => { Team2ScoreLabel.UpdateLayout(); }));
 
                 PasswordAmountToQuess--;
 
